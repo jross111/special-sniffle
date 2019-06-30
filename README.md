@@ -1,10 +1,12 @@
-React, Express, MongoDB
+# Home Project...
+
+## React, Express, NPM, MongoDB
 
 `npm install --save-dev @babel/core @babel/node @babel/preset-env`  
 `npx babel-node src/server.js`    
 `npx nodemon --exec npx babel-node src/server.js`
 
-## To do
+### To do
 
 * add upvote button
 * add comment form
