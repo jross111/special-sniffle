@@ -8,8 +8,7 @@
 
 ### To do
 
-* add upvote button
-* add comment form
-* markdown compatability for posts (or some other way to easily include `code snippets`)
-
+* [ ] add upvote button
+* [ ] add comment form
+* [ ] markdown compatability for posts (or some other way to easily include `code snippets`)
 
