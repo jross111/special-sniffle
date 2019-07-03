@@ -11,4 +11,5 @@
 * [ ] add upvote button
 * [ ] add comment form
 * [ ] markdown compatability for posts (or some other way to easily include `code snippets`)
+* [ ] Redux Diagram/Flow
 
