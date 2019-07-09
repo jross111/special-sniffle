@@ -13,6 +13,7 @@
 * [Lifecycle Methods](#Lifecycle-Methods)
 * [Event Listeners](#Event-Listeners)
 * [Manage Updates with Lifecycle Methods](#Manage-Updates-with-Lifecycle-Methods)
+* [Optimize Re-Renders with `shouldComponentUpdate()`](#Optimize-Re-Renders-with-shouldComponentUpdate())
 
 ***
 
@@ -396,13 +397,13 @@ class RenderInput extends React.Component {
 
 `componentDidMount()` method is often used to place API calls.  It's called after a component is mounted to the DOM. Any calls to `setState()` within this method will trigger a re-render of the component. When you call an API in this method, and set your state with the data that the API returns, it will automatically trigger an update once you receive the data.
 
-`componentWillReceiveProps()`
+`componentWillReceiveProps()` is called whenever a component is receiving new props. It usually receives the new props as `nextProps` You can perform functions on these props before the component updates.  
 
-`shouldComponentUpdate()`
+`shouldComponentUpdate()` take `nextProps` and `nextState` as parameters and and allows us to declare specifically if the component should update or not.  It's very useful for optimizing performance.
 
 `componentWillUpdate()` 
 
-`componentDidUpdate()`
+`componentDidUpdate()` is called immediately after the component re-renders.
 
 `componentWillUnmount()`
 
@@ -448,3 +449,110 @@ class MyComponent extends React.Component {
 ```
 ***
 ## Manage Updates with Lifecycle Methods
+
+`componentWillReceiveProps()` is called whenever a component is receiving new props. It usually receives the new props as `nextProps` You can perform functions on these props before the component updates.  
+
+`componentDidUpdate()` is called immediately after the component re-renders.
+
+Rendering and mounting are not the same thing.  When a page loads, all components are mounted.  After that, they are rendered.
+
+The following example will log `componentWillReceiveProps()` first, followed by `componentWillUpdate()`, and finally `componentDidUpdate()`
+
+```javascript
+class Dialog extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  componentWillUpdate() {
+    console.log('Component is about to update...');
+  }
+  componentWillReceiveProps(nextProps){
+    console.log(this.props, nextProps)
+  }
+  componentDidUpdate(){
+    console.log("Component has updated.")
+  }
+  render() {
+    return <h1>{this.props.message}</h1>
+  }
+};
+
+class Controller extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: 'First Message'
+    };
+    this.changeMessage = this.changeMessage.bind(this);
+  }
+  changeMessage() {
+    this.setState({
+      message: 'Second Message'
+    });
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.changeMessage}>Update</button>
+        <Dialog message={this.state.message}/>
+      </div>
+    );
+  }
+};
+```
+***
+## Optimize Re-Renders with `shouldComponentUpdate()`
+
+`shouldComponentUpdate()` take `nextProps` and `nextState` as parameters and and allows us to declare specifically if the component should update or not.  It's very useful for optimizing performance.  The most common use is to compare whether `nextProps` are different from `this.props`, if they're the same, we can stop the component from re-rendering.
+
+This example uses an incrementing counter. The `shouldComponentUpdate()` method prevents the component from re-rendering if the current value is odd.
+
+```javascript
+class OnlyEvens extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('Should I update?');
+    console.log(nextProps.value)
+    if ( nextProps.value % 2 == 0 ) {
+    return true;
+    } else {
+      return false;
+    }
+  }
+  componentWillReceiveProps(nextProps) {
+    console.log('Receiving new props...');
+  }
+  componentDidUpdate() {
+    console.log('Component re-rendered.');
+  }
+  render() {
+    return <h1>{this.props.value}</h1>
+  }
+};
+
+class Controller extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      value: 0
+    };
+    this.addValue = this.addValue.bind(this);
+  }
+  addValue() {
+    this.setState({
+      value: this.state.value + 1
+    });
+  }
+  render() {
+    return (
+      <div>
+        <button onClick={this.addValue}>Add</button>
+        <OnlyEvens value={this.state.value}/>
+      </div>
+    );
+  }
+};
+```
+***
