@@ -10,7 +10,9 @@
 * [Create a Controlled `Form`](#Create-a-Controlled-Form)
 * [Pass `state` as `props` to Child Components](#Pass-state-as-props-to-Child-Components)
 * [Pass a Callback as `props`](#Pass-a-Callback-as-props)
-* [Lifecycle Method: `componentWillMount`](#Lifecycle-Method-componentWillMount)
+* [Lifecycle Methods](#Lifecycle-Methods)
+* [Event Listeners](#Event-Listeners)
+
 ***
 
 
@@ -387,4 +389,23 @@ class RenderInput extends React.Component {
 };
 ```
 ***
-## Lifecycle Method `componentWillMount`
+## Lifecycle Methods 
+
+`componentWillMount()` method is called before `render()`.
+
+`componentDidMount()` method is often used to place API calls.  It's called after a component is mounted to the DOM. Any calls to `setState()` within this method will trigger a re-render of the component. When you call an API in this method, and set your state with the data that the API returns, it will automatically trigger an update once you receive the data.
+
+`componentWillReceiveProps()`
+
+`shouldComponentUpdate()`
+
+`componentWillUpdate()` 
+
+`componentDidUpdate()`
+
+`componentWillUnmount()`
+
+***
+## Event Listeners
+`componentDidMount` is the best place to attach event listeners.  
+
