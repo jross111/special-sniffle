@@ -12,6 +12,7 @@
 * [Pass a Callback as `props`](#Pass-a-Callback-as-props)
 * [Lifecycle Methods](#Lifecycle-Methods)
 * [Event Listeners](#Event-Listeners)
+* [Manage Updates with Lifecycle Methods](#Manage-Updates-with-Lifecycle-Methods)
 
 ***
 
@@ -407,5 +408,43 @@ class RenderInput extends React.Component {
 
 ***
 ## Event Listeners
-`componentDidMount` is the best place to attach event listeners.  
+`componentDidMount` is the best place to attach event listeners.  If you want to attach an event listener directly to the DOM, you have to do it directly.  In this example we use `document.addEventListener(method, callback)` in the `componentDidMount()` Method, and `document.removeEventListener()` in the `componentWillUnmount()` method.
 
+
+```javascript
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      message: ''
+    };
+    this.handleEnter = this.handleEnter.bind(this);
+    this.handleKeyPress = this.handleKeyPress.bind(this);
+  }
+  componentDidMount() {
+    document.addEventListener("keydown", this.handleKeyPress)
+  }
+  componentWillUnmount() {
+    document.removeEventListener('keydown', this.handleKeyPress)
+  }
+  handleEnter() {
+    this.setState({
+      message: this.state.message + 'You pressed the enter key! '
+    });
+  }
+  handleKeyPress(event) {
+    if (event.keyCode === 13) {
+      this.handleEnter();
+    }
+  }
+  render() {
+    return (
+      <div>
+        <h1>{this.state.message}</h1>
+      </div>
+    );
+  }
+};
+```
+***
+## Manage Updates with Lifecycle Methods
