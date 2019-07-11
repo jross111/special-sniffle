@@ -1,6 +1,4 @@
 # React State
-
-
 * [Render `state` in the User Interface](#Render-State-in-the-User-Interface)
 * [Set State with `this.setState`](#set-state-with-this.setstate)
 * [Bind `this` to a Class Method](#bind-this-to-a-class-method)
