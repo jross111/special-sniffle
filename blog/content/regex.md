@@ -7,7 +7,7 @@
 * [Extracting Matches with `.match()`](#Extracting-Matches-with-.match())
 * [Return all matches flag `/g`](#Return-all-matches-flag-/g)
 * [Wild card period](#wild-card-period)
-
+***
 
 ## `test()` Method
 The `test()` method applies a regular expression to a string and returns `true` or `false`.  
