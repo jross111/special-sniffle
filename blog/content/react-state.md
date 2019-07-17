@@ -12,6 +12,7 @@
 * [Event Listeners](#Event-Listeners)
 * [Manage Updates with Lifecycle Methods](#Manage-Updates-with-Lifecycle-Methods)
 * [Optimize Re-Renders with `shouldComponentUpdate()`](#Optimize-Re-Renders-with-shouldComponentUpdate())
+* [Using `&&` for more Concise Conditional](#Using-`&&`-for-more-Concise-Conditional)
 
 ***
 
@@ -554,3 +555,39 @@ class Controller extends React.Component {
 };
 ```
 
+## Using `&&` for more Concise Conditional
+
+The if/else statements worked in the last challenge, but there's a more concise way to achieve the same result. Imagine that you are tracking several conditions in a component and you want different elements to render depending on each of these conditions. If you write a lot of `else if` statements to return slightly different UIs, you may repeat code which leaves room for error. Instead, you can use the `&&` logical operator to perform conditional logic in a more concise way. This is possible because you want to check if a condition is true, and if it is, return some markup.
+
+Example:
+
+`{condition && <p>markup</p>}`
+
+If the condition is `true`, markup will be returned.  Otherwise it will return nothing.
+
+Previous example, using `&&` instead of the `if else` statement:
+
+```javascript
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      display: true
+    }
+    this.toggleDisplay = this.toggleDisplay.bind(this);
+  }
+  toggleDisplay() {
+    this.setState({
+      display: !this.state.display
+    });
+  }
+  render() {
+    return (
+       <div>
+         <button onClick={this.toggleDisplay}>Toggle Display</button>
+         { this.state.display && <h1>Displayed!</h1>}
+       </div>
+    );
+  }
+};
+```
