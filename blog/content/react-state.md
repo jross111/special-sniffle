@@ -13,7 +13,7 @@
 * [Manage Updates with Lifecycle Methods](#Manage-Updates-with-Lifecycle-Methods)
 * [Optimize Re-Renders with `shouldComponentUpdate()`](#Optimize-Re-Renders-with-shouldComponentUpdate())
 * [Using `&&` for more Concise Conditional](#Using-`&&`-for-more-Concise-Conditional)
-
+* [Ternary Expression for Conditional Rendering](#Ternary-Expression-for-Conditional-Rendering)
 ***
 
 
@@ -591,3 +591,5 @@ class MyComponent extends React.Component {
   }
 };
 ```
+***
+## Ternary Expression for Conditional Rendering
