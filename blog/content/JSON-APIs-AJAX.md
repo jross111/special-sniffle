@@ -1,3 +1,13 @@
+
+
+* [Wait for page to load](#Wait-for-page-to-load)
+* [Handle Click Events](#Handle-Click-Events)
+* [Change Text with click Events](#Change-Text-with-click-Events)
+* [Get `JSON` with the JavaScript `XMLHttpRequest` Method](#Get-JSON-with-the-JavaScript-XMLHttpRequest-Method)
+* [Handle Click Events](#Handle-Click-Events)
+* [Access the JSON Data from an API](#Access-the-JSON-Data-from-an-API)
+
+
 ## Wait for page to load
 
 `DOMContentLoaded` can be attached to the top level of the DOM (the `document`) to ensure that any javascript will only excecute after the page has loaded:
@@ -28,7 +38,7 @@ After selecting which button is clicked (using the id), we can ad a function wit
   });
   ```
 
-  ## Get `JSON` with the JavaScript `XMLHttpRequest` Method
+## Get `JSON` with the JavaScript `XMLHttpRequest` Method
 
    JSON transmitted by APIs are sent as `bytes`, and your application receives it as a `string`. These can be converted into JavaScript objects, but they are not JavaScript objects by default. The `JSON.parse` method parses the string and constructs the JavaScript object described by it.
 
@@ -64,3 +74,5 @@ req.onload=function(){
   document.getElementsByClassName('message')[0].innerHTML=JSON.stringify(json);
 };
 ```
+
+## Access the JSON Data from an API
