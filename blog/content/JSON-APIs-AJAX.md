@@ -30,4 +30,37 @@ After selecting which button is clicked (using the id), we can ad a function wit
 
   ## Get `JSON` with the JavaScript `XMLHttpRequest` Method
 
-  
+   JSON transmitted by APIs are sent as `bytes`, and your application receives it as a `string`. These can be converted into JavaScript objects, but they are not JavaScript objects by default. The `JSON.parse` method parses the string and constructs the JavaScript object described by it.
+
+   The JavaScript `XMLHttpRequest` object has a number of properties and methods that are used to transfer data. First we create an instance of the `XMLHttpRequest` object and save it to the variable `rec`: 
+```javascript
+   req=new XMLHttpRequest();
+   ```
+
+   Next we use the `open` method to initialize a request.  The **first** argument will take a "GET" request since we are requesting data.  The **second** argument for the `open` method is the URL of the API we are requesting data from.  The **third** argument is a `Boolean` value where `true` makes it an asynchronous request:
+```javascript
+   req.open("GET",'/json/cats.json',true);
+   ```
+   Next, the `send` method sends the request:
+```javascript
+   req.send();
+   ```
+   And lastly the `onload` event handler parses the returned data and applies the `JSON.stringify` method to convert the JavaScript object into a string.  This string is then inserted as the message text:
+
+```javascript
+    req.onload=function(){
+    json=JSON.parse(req.responseText);
+    document.getElementsByClassName('message')[0].innerHTML=JSON.stringify(json);
+    };
+```
+Create XMLHttpRequest, `open` it, `send` it, `onload` parse it.
+
+```javascript:
+req=new XMLHttpRequest();
+req.open("GET",'/json/cats.json',true);
+req.send();
+req.onload=function(){
+  json=JSON.parse(req.responseText);
+  document.getElementsByClassName('message')[0].innerHTML=JSON.stringify(json);
+};
+```
