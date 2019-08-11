@@ -5,7 +5,7 @@
 * [Change Text with click Events](#Change-Text-with-click-Events)
 * [Get `JSON` with the JavaScript `XMLHttpRequest` Method](#Get-JSON-with-the-JavaScript-XMLHttpRequest-Method)
 * [Handle Click Events](#Handle-Click-Events)
-* [Access the JSON Data from an API](#Access-the-JSON-Data-from-an-API)
+* [Access the JSON Data from an API and add HTML](#Access-the-JSON-Data-from-an-API-and-add-HTML)
 
 
 ## Wait for page to load
@@ -65,7 +65,7 @@ After selecting which button is clicked (using the id), we can ad a function wit
 ```
 Create XMLHttpRequest, `open` it, `send` it, `onload` parse it.
 
-```javascript:
+```javascript
 req=new XMLHttpRequest();
 req.open("GET",'/json/cats.json',true);
 req.send();
@@ -75,4 +75,23 @@ req.onload=function(){
 };
 ```
 
-## Access the JSON Data from an API
+## Access the JSON Data from an API and add HTML
+
+After accessing the data, we can use nested `forEach` loops to interate over each piece of data and add approriate html to render to the browser:
+
+```javascript
+let html = "";
+json.forEach(function(val) {
+    let keys = Object.keys(val);
+    html += "<div class = 'cat'>";
+    html += "<img src='" + val.imageLink + "' " + "alt='" + val.altText + "'>" 
+    keys.forEach(function(key) {
+    html += "<strong>" + key + "</strong>: " + val[key] + "<br>";
+    });
+html += "</div><br>";
+});
+```
+
+## Get Geolocation Data
+
+
