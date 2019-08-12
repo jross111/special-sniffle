@@ -92,6 +92,5 @@ html += "</div><br>";
 });
 ```
 
-## Get Geolocation Data
 
 
