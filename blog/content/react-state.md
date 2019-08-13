@@ -645,4 +645,51 @@ class CheckUserAge extends React.Component {
 };
 
 ```
+***
+## Render Conditionally from Props
+
+It's very common to use props to conditionally render code by using the value of a prop to decide what is rendered.  The following is a simple game that renders either "You win!" or "You lose!", each with a 50% chance.
+
+```jsx
+class Results extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return (
+      <h1>
+      {
+       this.props.fiftyFifty
+      }
+      </h1>
+    )
+  };
+};
+
+class GameOfChance extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      counter: 1
+    }
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick() {
+    this.setState({
+      counter: this.state.counter + 1
+    });
+  }
+  render() {
+    let expression = Math.random() > .5
+    return (
+      <div>
+        <button onClick={this.handleClick}>Play Again</button>
+        {(expression == 1)? <Results fiftyFifty="You win!"/> : <Results fiftyFifty="You lose!"/> }
+        <p>{'Turn: ' + this.state.counter}</p>
+      </div>
+    );
+  }
+};
+```
+
 
