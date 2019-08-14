@@ -800,3 +800,20 @@ class MyComponent extends React.Component {
   }
 };
 ```
+***
+## Render React on the Server with `renderToString`
+
+Since React is a JavaScript view library and you can run JavaScript on the server with Node, this is possible. In fact, React provides a `renderToString()` method you can use for this purpose.
+`ReactDOMServer` takes one argument, a React element.
+
+```javascript
+class App extends React.Component {
+  constructor(props) {
+    super(props);
+  }
+  render() {
+    return <div/>
+  }
+};
+ReactDOMServer.renderToString(< App />);
+```
