@@ -2,6 +2,7 @@
 
 * [Create a Redux `store`](#Create-a-Redux-store)
 * [Get State from the Redux Store](#Get-State-from-the-Redux-Store)
+* [Define a Redux Action](#Define-a-Redux-Action)
 ***
 
 ## Create a Redux `store`
@@ -33,3 +34,50 @@ const store = Redux.createStore(
 );
 let currentState = store.getState();
 ```
+***
+## Define a Redux Action
+
+In Redux, all state is triggered by any action. An action is a JS object that contains info about an action event that has already occured.  The `store` receives these objects and updates its `state`.  A Redux action can also carry data, like a the username of a new log in. The data is optional, but all actions must carry a `type` property that specifies the type of action that occured.  
+
+_Think of Redux actions as messengers that deliver information about events happening in your app to the Redux store. The store then conducts the business of updating state based on the action that occurred._
+
+To write a Redux action, declare an object with a `type` property:
+
+```javascript
+const action = {
+  type: 'LOGIN'
+}
+```
+***
+## Define an Action Creator
+
+Once we create an action, it needs to be sent to the Redux `store` so it can update its `state`.  We can do this by defining an action `creator`, which is a function that returns an action.  **Action creators create objects that represent action events**
+
+```javascript
+const action = {
+  type: 'LOGIN'
+}
+
+function actionCreator(){
+    return action
+}
+```
+***
+## Dispatch an Action Event
+
+The `dispatch` action dispactes actions to the Redux `store`.  Calling `store.dispatch()` and passing the value returned from an action creator sends an action back to the store.
+
+```javascript
+const store = Redux.createStore(
+  (state = {login: false}) => state
+);
+
+const loginAction = () => {
+  return {
+    type: 'LOGIN'
+  }
+};
+
+store.dispatch(loginAction())
+```
+***
