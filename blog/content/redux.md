@@ -23,5 +23,13 @@ const reducer = (state = 5) => {
 const store = Redux.createStore(reducer)
 ```
 ***
-## Get State from the Redux Store
+## Get State from the Redux Store with `getState()`
 
+One way to retrieve `state` from the Redux `store` object is with the `getState()` method:
+
+```javascript
+const store = Redux.createStore(
+  (state = 5) => state
+);
+let currentState = store.getState();
+```
