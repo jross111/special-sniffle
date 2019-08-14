@@ -14,6 +14,8 @@
 * [Optimize Re-Renders with `shouldComponentUpdate()`](#Optimize-Re-Renders-with-shouldComponentUpdate())
 * [Using `&&` for more Concise Conditional](#Using-`&&`-for-more-Concise-Conditional)
 * [Ternary Expression for Conditional Rendering](#Ternary-Expression-for-Conditional-Rendering)
+* [Render Conditionally from Props](#Render-Conditionally-from-Props)
+* [Use `Array.map()` to Dynamically Render Elements](#Use-Array.map()-to-Dynamically-Render-Elements)
 ***
 
 
@@ -742,6 +744,58 @@ class MyToDoList extends React.Component {
           {items}
         </ul>
       </div>
+    );
+  }
+};
+```
+***
+## Use `filter()` to Dynamically Render Elements
+
+The `filter()` method can be used to dynamically filter arrays before mapping over them.
+
+```javascript
+class MyComponent extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      users: [
+        {
+          username: 'Jeff',
+          online: true
+        },
+        {
+          username: 'Alan',
+          online: false
+        },
+        {
+          username: 'Mary',
+          online: true
+        },
+        {
+          username: 'Jim',
+          online: false
+        },
+        {
+          username: 'Sara',
+          online: true
+        },
+        {
+          username: 'Laura',
+          online: true
+        }
+      ]
+    }
+  }
+  render() {
+    const usersOnline = this.state.users.filter(user => user.online);
+    const renderOnline = usersOnline.map((i) => <li key={i.user + 1}>{i.username}</li>)
+    return (
+       <div>
+         <h1>Current Online Users:</h1>
+         <ul>
+           {renderOnline}
+         </ul>
+       </div>
     );
   }
 };
