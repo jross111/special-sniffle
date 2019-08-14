@@ -81,3 +81,32 @@ const loginAction = () => {
 store.dispatch(loginAction())
 ```
 ***
+## Handle an Action in the Store
+
+The `reducer` determines how the Redux `store` reacts after an action is created and dispatched.  They are responsible for `state` modifications that take place in response to actions.  
+The `reducer` takes two arguments, `state` and `action`, and always returns a new `state`.  **This is the only role of the `reducer`.  It is a pure function.**
+
+```javascript
+const defaultState = {
+  login: false
+};
+
+const reducer = (state = defaultState, action) => {
+  if (action.type == 'LOGIN'){
+    return {
+      login: true
+    }
+  } else {
+    return defaultState
+  }
+};
+
+const store = Redux.createStore(reducer);
+
+const loginAction = () => {
+  return {
+    type: 'LOGIN'
+  }
+};
+```
+***
