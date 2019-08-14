@@ -1,4 +1,5 @@
-# React State
+# React Overview
+
 * [Render `state` in the User Interface](#Render-State-in-the-User-Interface)
 * [Set State with `this.setState`](#set-state-with-this.setstate)
 * [Bind `this` to a Class Method](#bind-this-to-a-class-method)
@@ -16,6 +17,8 @@
 * [Ternary Expression for Conditional Rendering](#Ternary-Expression-for-Conditional-Rendering)
 * [Render Conditionally from Props](#Render-Conditionally-from-Props)
 * [Use `Array.map()` to Dynamically Render Elements](#Use-Array.map()-to-Dynamically-Render-Elements)
+* [Use `filter()` to Dynamically Render Elements](#Use-filter()-to-Dynamically-Render-Elements)
+* [Render React on the Server with `renderToString`](#Render-React-on-the-Server-with-renderToString)
 ***
 
 
