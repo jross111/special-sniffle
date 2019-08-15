@@ -1,5 +1,5 @@
 let result = '84bf9ef55688e32ff76e55cae779d317a08e7d13a9e6998fef9f9ea70000f38603aa86247bc40655a4fcb53ee9ada704952ced416d2b39e572339f2f6ce17e7d1111bbbb000022223333444455559999aaaabbbbccccffffffffeeeefffff0f0'
-let abc = '9eac8fa152225c8121a09347f1bf09b603a3d5c411c0d47d6f3d496161861da8b038f183c2002522945ac9a4723bd34995563f48ab34cb979f0b843e033ebf1c'
+let abc = 'd7bb7bbd0251a7aa805da2e665a152dc30892207432a9c5b3833a7b13e675341538ff1e7e8de03aca320c4652bb3f3f1628a5ad2cff4cd2e896b55d48e37fff7'
 let split = result.split( /(?<=^(?:.{4})+)(?!$)/ )
 let split1 = abc.split( /(?<=^(?:.{4})+)(?!$)/ )
 // console.log(split)
