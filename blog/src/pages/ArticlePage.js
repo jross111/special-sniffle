@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import ArticlesList from '../components/ArticlesList';
+import CommentsList from '../components/CommentsList';
 import articleContent from './article-content';
 import NotFoundPage from './notfound';
 
@@ -22,16 +23,17 @@ const ArticlePage = ({ match }) => {
     if (!article) return <NotFoundPage />
     const otherArticles = articleContent.filter(article => article.name !== name)
     return (
-        <React.Fragment>
+        <>
             <h1>{article.title}</h1>
             <p>Upvotes: {articleInfo.upvotes}</p>
             {article.content.map((paragraph, key) => (
                 <p key={key}>{paragraph}</p>
             ))}
+        <CommentsList comments={articleInfo.comments} />
         <h3>Other Articles</h3>
         <ArticlesList articles={otherArticles} />
 
-        </React.Fragment>
+        </>
     );
 }
 
