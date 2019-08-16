@@ -24,8 +24,7 @@ Fuctional programming is a **Declarative** style of programming, while object or
 * Pieces of data are not considered objects in fuctional programming.  Data must be passed as arguments to Functions.
 
 ### First-Class Functions
-* A First Class Function is a Function that not influenced by any sort of internal or external state.  The same argument will always have the same return. 
-
+* First class functions are functions that are treated like an object (or are assignable to a variable). Higher order functions are functions that take at least one first class function as a parameter. Values in a language that are handled uniformly throughout are called "first class"
 
 
 
