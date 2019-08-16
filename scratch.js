@@ -25,3 +25,17 @@ function convert(arr){
 
 console.log(convert(split))
 console.log(convert(split1))
+
+{
+    name: 'learn-react',
+    upvotes: '0',
+    comments: '[]',
+}, {
+    name: 'learn-node',
+    upvotes: '5',
+    comments: '[]',
+}, {
+    name: 'my-thoughts-on-resumes',
+    upvotes: '0',
+    comments: '[]',
+},
