@@ -25,6 +25,8 @@
 ## Render `state` in the User Interface
 
 
+
+
 Anytime we return state, `this.state` needs to be wrapped in curly braces. This should render 'Jamie' in h1 tags:
 ```javascript
 class MyComponent extends React.Component {
