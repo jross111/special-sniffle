@@ -29,6 +29,7 @@ Fuctional programming is a **Declarative** style of programming, while object or
 * Pieces of data are not considered objects in fuctional programming.  Data must be passed as arguments to Functions.
 
 ***
+***
 
 ## First-Class Functions
 
