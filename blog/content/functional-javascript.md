@@ -31,6 +31,9 @@ Fuctional programming is a **Declarative** style of programming, while object or
 ***
 ***
 
+
+
+
 ## First-Class Functions
 
 
