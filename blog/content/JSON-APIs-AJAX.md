@@ -66,7 +66,7 @@ req.onload = function () {
 };
 ```
 
-Create XMLHttpRequest, `open` it, `send` it, `onload` parse it.
+Create XMLHttpRequest, `open` it, `send` it, `onload` parse it .
 
 ```javascript
 req = new XMLHttpRequest();
