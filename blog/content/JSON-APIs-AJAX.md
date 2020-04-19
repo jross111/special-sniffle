@@ -70,8 +70,9 @@ Create XMLHttpRequest, `open` it, `send` it, `onload` parse it.
 
 ```javascript
 req = new XMLHttpRequest();
-req.open('GET', '/json/cats.json', true);
 req.send();
+req.open('GET', '/json/cats.json', true);
+
 req.onload = function () {
 	json = JSON.parse(req.responseText);
 	document.getElementsByClassName('message')[0].innerHTML = JSON.stringify(
