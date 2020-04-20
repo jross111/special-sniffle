@@ -1,5 +1,5 @@
 - [Wait for page to load](#wait-for-page-to-load)
-- [Handle Click Events](#handle-click-events)
+- [Handle Click-Events](#handle-click-events)
 - [Change Text with click Events](#change-text-with-click-events)
 - [Get `JSON` with the JavaScript `XMLHttpRequest` Method](#get-json-with-the-javascript-xmlhttprequest-method)
 - [Access the JSON Data from an API and add HTML](#access-the-json-data-from-an-api-and-add-html)
@@ -12,7 +12,7 @@
 document.addEventListener('DOMContentLoaded', function () {});
 ```
 
-## Handle Click Events
+## Handle Click-Events
 
 You can implement event handlers that go inside of the `DOMContentLoaded` function. You can implement an `onclick` event handler which triggers when the user clicks on the element with id `getMessage`, by adding the following code:
 
